@@ -1,15 +1,16 @@
 /**
- * Bolje je koristiti abstract klasu nego interface jer mozemo da zovemo instanceof
+ *
+ * Its better to use abstract class than interface because we can use instanceof
  *
  * @abstract
- * Ispred metode ili property-ja označava da ona mora biti implementirana u klasi koja extenduje ovu klasu
+ * It means that the method or property must be implemented in the class that extends this class
  */
 export abstract class CustomError extends Error {
   abstract statusCode: number;
 
   /**
    * @param message
-   * Zelimo da bacamo Error sa porukom koja se logovati (nece se slati korisniku)
+   * We want to throw an Error with a message that will be logged (it won't be sent to the user)
    *
    */
   constructor(message: string) {
@@ -17,15 +18,14 @@ export abstract class CustomError extends Error {
 
     /**
      * @required
-     * Samo zato sto extendujemo built-in klasu
+     * Because we are extending a built-in class
      */
     Object.setPrototypeOf(this, CustomError.prototype);
   }
 
   /**
-   *  Modifikujemo podatke koje saljemo kada se desi Error
-   * (errorHandler middleware ne mora da zna logiku za svaki error)
-   *
+   * We are modifying the data that we send when an Error occurs
+   * (the errorHandler middleware doesn't have to know the logic for every error)
    *
    */
   abstract serializeErrors(): { message: string; field?: string }[];

@@ -24,11 +24,11 @@ export class RequestValidationError extends CustomError {
 }
 
 // _____________________________________________________________________________
-// private _nesto
-// construnctor(nesto NekaKlasa) {
-//     this._nesto = nesto
+// private _someField
+// construnctor(someField SomeClass) {
+//     this._someField = someField
 // }
-// je isto sto i
-// construnctor(private nesto NekaKlasa) {
+// is the same as
+// construnctor(private someField NekaKlasa) {
 // }
 // _____________________________________________________________________________
